@@ -1,4 +1,3 @@
-
 $(document).ready(initializeApp);
 
 var gameboard = [{}, {}, {}, {}, {}, {}, {}]
@@ -11,18 +10,19 @@ var rightDiagnal = 0;
 var leftDiagnal = 0;
 
 function initializeApp() {
-  $('.col0').on('click', handleClick);
+  createGameBoard();
+  debugger;
+  $('.columnContainer').on('click', '.col0', handleClick);
   $('.col1').on('click', handleClick);
   $('.col2').on('click', handleClick);
   $('.col3').on('click', handleClick);
   $('.col4').on('click', handleClick);
   $('.col5').on('click', handleClick);
   $('.col6').on('click', handleClick);
-  createGameBoard();
 }
 
 function handleClick(event) {
-  debugger;
+  console.log('test');
   clickedColumnNumber = parseInt($((event.currentTarget)).attr('class').split('')[3]);
   clickedRowNumber = Object.keys(gameboard[clickedColumnNumber]).length;
   if (clickedRowNumber < 7) {
@@ -66,29 +66,6 @@ function check(){
       verticalMatch = 0;
     }
   }
-}
-function createGameBoard() {
-  var columnContainer = $('.columnContainer');
-  var h=0;
-  var j=0;
-
-  var columnClassArray = ['col0', 'col1', 'col2', 'col3', 'col4', 'col5', 'col6'];
-  var rowClassArray = ['hover', 'row5', 'row4', 'row3', 'row2', 'row1', 'row0'];
-
-  for (var column = 0; column<7 ; column++) {
-    var newColumn = $('<div>');
-    newColumn.addClass(columnClassArray[h]);
-
-    for (var row = 0; row < 7; row++) {
-      var newRow = $('<div>');
-      newRow.addClass(rowClassArray[j]);
-      j++;
-      newColumn.append(newRow)
-    }
-    h++
-    j=0;
-    columnContainer.append(newColumn);
-  }
   //diagnal check
   for (var rowNum = 0, columnNum = 0; rowNum - columnNum === clickedColumnNumber - clickedRowNumber && rowNum < 6 && columnNum < 7; rowNum++ , columnNum++) {
     if (targetProperty === gameboard[columnNum][rowNum]) {
@@ -100,7 +77,7 @@ function createGameBoard() {
     else {
       rightDiagnal = 0;
     }
-}
+  }
 }
 
 function checkResult(){
@@ -113,5 +90,29 @@ function checkResult(){
   }
   else{
     return;
+  }
+}
+
+function createGameBoard() {
+  var columnContainer = $('.columnContainer');
+  var h = 0;
+  var j = 0;
+
+  var columnClassArray = ['col0', 'col1', 'col2', 'col3', 'col4', 'col5', 'col6'];
+  var rowClassArray = ['hover', 'row5', 'row4', 'row3', 'row2', 'row1', 'row0'];
+
+  for (var column = 0; column < 7; column++) {
+    var newColumn = $('<div>');
+    newColumn.addClass(columnClassArray[h]);
+
+    for (var row = 0; row < 7; row++) {
+      var newRow = $('<div>');
+      newRow.addClass(rowClassArray[j]);
+      j++;
+      newColumn.append(newRow)
+    }
+    h++
+    j = 0;
+    columnContainer.append(newColumn);
   }
 }
