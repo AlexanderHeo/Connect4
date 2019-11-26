@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-    <script src="script.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Connect Four</title>
 </head>
@@ -15,10 +14,6 @@
 <div class="main">
   <div class="stats">
     <div class="mainStats">
-      <!-- <div class="statsBox">
-        <button id="starWars">Star Wars</button>
-        <button id="marvel">Marvel</button>
-      </div> -->
       <div class="statsBox">
         <div class="stat" id="playerOne">Red Player:</div>
         <div class="stat">2</div>
@@ -35,6 +30,7 @@
     <div class="game">
       <div class="columnContainer">
         <div class="col0">
+          <div class="hover yellowHover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -43,6 +39,7 @@
           <div class="row0 yellow"></div>
         </div>
         <div class="col1">
+          <div class="hover redHover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -51,6 +48,7 @@
           <div class="row0 red"></div>
         </div>
         <div class="col2">
+          <div class="hover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -59,6 +57,7 @@
           <div class="row0"></div>
         </div>
         <div class="col3">
+          <div class="hover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -67,6 +66,7 @@
           <div class="row0"></div>
         </div>
         <div class="col4">
+          <div class="hover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -75,6 +75,7 @@
           <div class="row0"></div>
         </div>
         <div class="col5">
+          <div class="hover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
@@ -83,6 +84,7 @@
           <div class="row0"></div>
         </div>
         <div class="col6">
+          <div class="hover"></div>
           <div class="row5"></div>
           <div class="row4"></div>
           <div class="row3"></div>
