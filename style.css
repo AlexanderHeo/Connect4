@@ -75,8 +75,14 @@ flex-direction: column;
   border-radius: 50px;
 }
 .yellow {
-  background-color: yellow;
+  /* background-color: yellow; */
+  background-image: url('assets/rebels.jpg');
+  background-position: center;
+  background-size: cover;
 }
 .red {
-  background-color: red;
+  /* background-color: red; */
+  background-image: url('assets/empire.jpg');
+  background-position: center;
+  background-size: cover;
 }
