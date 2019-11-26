@@ -41,6 +41,7 @@ body {
   height: 75%;
   display: flex;
   background-color: rgb(9, 112, 197);
+  z-index: -2;
 }
 .columnContainer {
   width: 50%;
@@ -56,10 +57,12 @@ body {
 .col6 {
 height: 80%;
 width: 14.5%;
-background-color: rgb(87, 61, 230);
+/* background-color: rgb(87, 61, 230); */
 margin: auto;
 display: flex;
 flex-direction: column;
+position: relative;
+z-index: -1;
 }
 .row0,
 .row1,
@@ -67,22 +70,23 @@ flex-direction: column;
 .row3,
 .row4,
 .row5 {
-  height: 16%;
-  width: 75%;
-  /* justify-content: space-between; */
+  height: 15%;
+  width: 91%;
   margin: auto;
-  background-color: gainsboro;
-  border-radius: 50px;
+  background-image: url('assets/blueDotTransparent.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: 2;
 }
 .yellow {
-  /* background-color: yellow; */
-  background-image: url('assets/rebels.jpg');
+  background-image: url('assets/yellowDot.jpg');
   background-position: center;
   background-size: cover;
+  z-index: 0;
 }
 .red {
-  /* background-color: red; */
-  background-image: url('assets/empire.jpg');
+  background-image: url('assets/redDot.jpg');
   background-position: center;
   background-size: cover;
+  z-index: 0;
 }
