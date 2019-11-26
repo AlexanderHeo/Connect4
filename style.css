@@ -57,19 +57,13 @@ body {
 .col6 {
 height: 80%;
 width: 14.5%;
-/* background-color: rgb(87, 61, 230); */
 margin: auto;
 display: flex;
 flex-direction: column;
 position: relative;
 z-index: -1;
 }
-.hover {
-  height: 13.5;
-  width: 91%;
-  margin: 10px auto;
-  background-color: gainsboro;
-}
+
 .row0,
 .row1,
 .row2,
@@ -78,7 +72,7 @@ z-index: -1;
 .row5 {
   height: 13.5%;
   width: 91%;
-  margin: 10px auto;
+  margin: 3px auto;
   background-image: url('assets/blueDotTransparent.jpg');
   background-position: center;
   background-size: cover;
@@ -95,4 +89,21 @@ z-index: -1;
   background-position: center;
   background-size: cover;
   z-index: 0;
+}
+.hover {
+  height: 13.5%;
+  width: 91%;
+  margin: 0 auto;
+}
+.redHover,
+.yellowHover {
+background-repeat: no-repeat;
+background-size: 75%;
+background-position: center;
+}
+.redHover{
+background-image:url('assets/redHover.jpg');
+}
+.yellowHover{
+background-image:url('assets/yellowHover.jpg');
 }
