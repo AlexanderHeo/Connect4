@@ -62,5 +62,18 @@ function check(){
       verticalMatch = 0;
     }
   }
+  //diagnal check
+  debugger;
+  for (var rowNum = 0, columnNum = 0; rowNum - columnNum === clickedColumnNumber - clickedRowNumber && rowNum < 6 && columnNum < 7; rowNum++ , columnNum++) {
+    if (targetProperty === gameboard[columnNum][rowNum]) {
+      rightDiagnal++;
+      if (rightDiagnal === 4) {
+        break;
+      }
+    }
+    else {
+      rightDiagnal = 0;
+    }
 
+}
 }
