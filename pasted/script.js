@@ -8,15 +8,16 @@ var yellowWins = 0;
 var resetButton = $('.resetButton');
 var playerOneDiv = $('#playerOne');
   //stats div with an id of playerOne
+var playerOneText = $('.redStat');
 var playerTurnDiv = $('#playerTurn');
   //stats div with an id of playerTurn
 var playerTwoDiv = $('#playerTwo');
   //stats div with an id of playerTwo
+var playerTwoText = $('.yellowStat')
 var redCircles = $('div').find('red');
   //all divs with a class of 'red'
 var yellowCircles = $('div').find('yellow');
   //all divs with a class of 'yellow'
-
 function startApp(){
   resetButton.on('click', resetGame);
   //on click of the reset button
@@ -38,7 +39,7 @@ function resetGame(){
     redWins++;
     //add one to redWins
 
-    playerOneDiv.text(redWins);
+    playerOneText.text(redWins);
       //the div with an id of playerOne
       //change the text to the value of variable redWins
 
@@ -55,7 +56,7 @@ function resetGame(){
     yellowWins++
     //add one to yellowWins;
 
-    playerTwoDiv.text(yellowWins);
+    playerTwoText.text(yellowWins);
     //the div with an id of playerTwo
     //change the text to the value of variable yellowWins
 
