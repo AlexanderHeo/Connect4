@@ -8,10 +8,17 @@ body {
   flex-direction: column;
 }
 .stats {
+<<<<<<< HEAD
   font-size: 1.5rem;
   text-align: center;
   background-color: rgb(47, 73, 219);
   height: 25%;
+=======
+  font-size: 1.3rem;
+  text-align: center;
+  background-color: rgb(47, 73, 219);
+  height: 20%;
+>>>>>>> a5f257637b38e87652781dc5a343b370c9053266
   display: flex;
 }
 .mainStats {
@@ -38,9 +45,16 @@ body {
   border: 1px solid red;
 }
 .game {
+<<<<<<< HEAD
   height: 75%;
   display: flex;
   background-color: rgb(9, 112, 197);
+=======
+  height: 80%;
+  display: flex;
+  background-color: rgb(9, 112, 197);
+  z-index: -2;
+>>>>>>> a5f257637b38e87652781dc5a343b370c9053266
 }
 .columnContainer {
   width: 50%;
@@ -56,10 +70,18 @@ body {
 .col6 {
 height: 80%;
 width: 14.5%;
+<<<<<<< HEAD
 background-color: rgb(87, 61, 230);
 margin: auto;
 display: flex;
 flex-direction: column;
+=======
+margin: auto;
+display: flex;
+flex-direction: column;
+position: relative;
+z-index: -1;
+>>>>>>> a5f257637b38e87652781dc5a343b370c9053266
 }
 .row0,
 .row1,
@@ -67,6 +89,7 @@ flex-direction: column;
 .row3,
 .row4,
 .row5 {
+<<<<<<< HEAD
   height: 16%;
   width: 75%;
   /* justify-content: space-between; */
@@ -90,4 +113,42 @@ flex-direction: column;
 }
 .hidden {
   display: none;
+=======
+  height: 13.5%;
+  width: 91%;
+  margin: 3px auto;
+  background-image: url('assets/blueDotTransparent.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: 2;
+}
+.yellow {
+  background-image: url('assets/yellowDot.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+.red {
+  background-image: url('assets/redDot.jpg');
+  background-position: center;
+  background-size: cover;
+  z-index: 0;
+}
+.hover {
+  height: 13.5%;
+  width: 91%;
+  margin: 0 auto;
+}
+.redHover,
+.yellowHover {
+background-repeat: no-repeat;
+background-size: 75%;
+background-position: center;
+}
+.redHover{
+background-image:url('assets/redHover.jpg');
+}
+.yellowHover{
+background-image:url('assets/yellowHover.jpg');
+>>>>>>> a5f257637b38e87652781dc5a343b370c9053266
 }
