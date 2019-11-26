@@ -20,6 +20,7 @@ function initializeApp() {
 }
 
 function handleClick(event) {
+  debugger;
   clickedColumnNumber = parseInt($((event.currentTarget)).attr('class').split('')[3]);
   clickedRowNumber = Object.keys(gameboard[clickedColumnNumber]).length;
   if (clickedRowNumber < 7) {
@@ -32,6 +33,7 @@ function handleClick(event) {
       playerTurnColor = "yellow"
     }
     check();
+    setTimeout(checkResult(), 10000);
   }
 }
 
@@ -63,7 +65,6 @@ function check(){
     }
   }
   //diagnal check
-  debugger;
   for (var rowNum = 0, columnNum = 0; rowNum - columnNum === clickedColumnNumber - clickedRowNumber && rowNum < 6 && columnNum < 7; rowNum++ , columnNum++) {
     if (targetProperty === gameboard[columnNum][rowNum]) {
       rightDiagnal++;
@@ -74,6 +75,18 @@ function check(){
     else {
       rightDiagnal = 0;
     }
-
 }
+}
+
+function checkResult(){
+  debugger;
+  if(horizontalMatch === 4 || verticalMatch === 4 || rightDiagnal === 4){
+    alert("you win!");
+    horizontalMatch = 0;
+    verticalMatch = 0;
+    rightDiagnal = 0;
+  }
+  else{
+    return;
+  }
 }
