@@ -63,10 +63,9 @@ function check(){
     else{
       verticalMatch = 0;
     }
-
-
+  }
+}
 function createGameBoard() {
-console.log('test');
   var columnContainer = $('.columnContainer');
   var h=0;
   var j=0;
