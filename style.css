@@ -2,10 +2,8 @@ body {
   margin: 0;
 }
 .main {
-  height: 100vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  height: 90vh;
+  width: 55vw;
 }
 .stats {
   font-size: 1.3rem;
@@ -15,7 +13,7 @@ body {
   display: flex;
 }
 .mainStats {
-  width: 50%;
+  width: 90%;
   display: flex;
   margin: 0 auto;
 }
@@ -30,7 +28,6 @@ body {
   /* text-shadow: 1px 1px brown; */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .redStat {
@@ -61,10 +58,9 @@ div.statsBox.yellow {
   height: 80%;
   display: flex;
   background-color: rgb(9, 112, 197);
-  z-index: -2;
 }
 .columnContainer {
-  width: 50%;
+  width: 90%;
   display: flex;
   margin: 0 auto;
 }
@@ -78,10 +74,18 @@ div.statsBox.yellow {
 height: 80%;
 width: 14.5%;
 margin: auto;
-display: flex;
-flex-direction: column;
-position: relative;
-z-index: -1;
+}
+.col0:hover,
+.col1:hover,
+.col2:hover,
+.col3:hover,
+.col4:hover,
+.col5:hover,
+.col6:hover {
+  transform: perspective(20px) translateZ(1px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.5s;
+  -webkit-font-smoothing: antialiased;
 }
 .row0,
 .row1,
@@ -95,26 +99,26 @@ z-index: -1;
   background-image: url('assets/blueDotTransparent.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 2;
 }
 .yellow {
   background-image: url('assets/yellowDot.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 0;
+  animation: fadingIn;
+  animation-duration: 800ms;
 }
 .red {
   background-image: url('assets/redDot.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 0;
+  animation: fadingIn;
+  animation-duration: 800ms;
 }
 .hover {
   height: 13.5%;
   width: 91%;
   margin: 0 auto;
 }
-
 .redHover{
   background-repeat: no-repeat;
   background-size: 75%;
@@ -151,4 +155,21 @@ z-index: -1;
 
 .hidden {
   display: none;
+}
+
+@keyframes fadingIn {
+  from { opacity: 0.0; }
+  to { opacity: 1.0; }
+}
+.chooseTheme {
+  position: absolute;
+  background-color: blue;
+  color: red;
+  text-shadow: 1px 1px yellow;
+  width: 100px;
+  height: 200px;
+  left: 10%;
+  top: 30%;
+  text-align: center;
+  justify-content: center;
 }
