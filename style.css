@@ -2,14 +2,16 @@ body {
   margin: 0;
 }
 .main {
-  height: 95vh;
-  width: 80vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
 }
 .stats {
   font-size: 1.3rem;
   text-align: center;
   background-color: rgb(47, 73, 219);
   height: 20%;
+  width: 100%;
   display: flex;
 }
 .mainStats {
@@ -17,7 +19,18 @@ body {
   display: flex;
   margin: 0 auto;
 }
-
+.game {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  background-color: rgb(9, 112, 197);
+}
+.columnContainer {
+  width: 90%;
+  height: 90%;
+  display: flex;
+  margin: 0 auto;
+}
 .statsBox,
 #playerTurn  {
   width: 30%;
@@ -41,26 +54,6 @@ body {
   background-color: yellow;
   color: black;
 }
-
-/* div.statsBox.red {
-  background-color: transparent;
-  overflow: hidden;
-}
-
-div.statsBox.yellow {
-  background-color: transparent;
-} */
-
-.game {
-  height: 80%;
-  display: flex;
-  background-color: rgb(9, 112, 197);
-}
-.columnContainer {
-  width: 90%;
-  display: flex;
-  margin: 0 auto;
-}
 .col0,
 .col1,
 .col2,
@@ -71,6 +64,8 @@ div.statsBox.yellow {
 height: 80%;
 width: 14.5%;
 margin: auto;
+display: flex;
+flex-direction: column;;
 }
 .col0:hover,
 .col1:hover,
@@ -95,7 +90,7 @@ margin: auto;
   margin: 3px auto;
   background-image: url('assets/blueDotTransparent.jpg');
   background-position: center;
-  background-size: 80%;
+  background-size: cover;
 }
 .yellow {
   background-image: url('assets/yellowDot.jpg');
@@ -134,15 +129,19 @@ margin: auto;
 .modal {
   display: none;
   background-color: skyblue;
-  height: 40vh;
-  width: 40vh;
+  height: 20%;
+  width: 60%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-size: cover;
   background-repeat: no-repeat;
   position: fixed;
-  background-image: url(../c1119_Hackathon/assets/reset.gif);
+  text-align: center;
+}
+.next-round{
+  display: block;
+  margin: auto;
 }
 
 #playerOne {
