@@ -16,7 +16,7 @@ function initializeApp() {
   createGameBoard();
   addClickHandlers();
   addHoverHandlers();
-  $('#playerTurn').css('background-color','yellow').text('yellow');
+  $('#playerTurn').addClass('yellow').text('yellow');
   $('.modal').hide();
 }
 
