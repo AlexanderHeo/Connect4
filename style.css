@@ -2,8 +2,8 @@ body {
   margin: 0;
 }
 .main {
-  height: 90vh;
-  width: 55vw;
+  height: 95vh;
+  width: 80vw;
 }
 .stats {
   font-size: 1.3rem;
@@ -22,10 +22,7 @@ body {
 .playerTurn  {
   width: 30%;
   height: 100%;
-  /* background-color: rgb(91, 91, 139); */
   margin: auto;
-  /* color: orange; */
-  /* text-shadow: 1px 1px brown; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -172,4 +169,107 @@ margin: auto;
   top: 30%;
   text-align: center;
   justify-content: center;
+}
+
+.fall {
+    animation-name: fall-animation;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation {
+    from {
+        transform-origin: top;
+        transform: translateY(-300px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.fall1 {
+    animation-name: fall-animation1;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation1 {
+    from {
+        transform-origin: top;
+        transform: translateY(-250px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.fall2 {
+    animation-name: fall-animation2;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation2 {
+    from {
+        transform-origin: top;
+        transform: translateY(-200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.fall3 {
+    animation-name: fall-animation3;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation3 {
+    from {
+        transform-origin: top;
+        transform: translateY(-150px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.fall4 {
+    animation-name: fall-animation4;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation4 {
+    from {
+        transform-origin: top;
+        transform: translateY(-100px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.fall5 {
+    animation-name: fall-animation5;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation5 {
+    from {
+        transform-origin: top;
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.fall6 {
+    animation-name: fall-animation6;
+    animation-duration: 500ms;
+}
+
+@keyframes fall-animation6 {
+    from {
+        transform-origin: top;
+        transform: translateY(-25px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
