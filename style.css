@@ -19,7 +19,7 @@ body {
 }
 
 .statsBox,
-.playerTurn  {
+#playerTurn  {
   width: 30%;
   height: 100%;
   margin: auto;
@@ -42,14 +42,14 @@ body {
   color: black;
 }
 
-div.statsBox.red {
+/* div.statsBox.red {
   background-color: transparent;
   overflow: hidden;
 }
 
 div.statsBox.yellow {
   background-color: transparent;
-}
+} */
 
 .game {
   height: 80%;
