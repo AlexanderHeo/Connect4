@@ -1,0 +1,38 @@
+pseudo for left diag check
+
+gameboard = [
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+  {},
+];
+
+piece dropped on gameboard[3][0] - column 3 row 0
+need to check column 2 row 1
+need to check column 1 row 2
+need to check column 0 row 3
+
+piece dropped on gameboard[4][3] - column 4 row 3
+need to check column 3 row 4
+need to check column 2 row 5
+need to check column 1 row 6
+----------------------------
+need to check column 5 row 2
+need to check column 6 row 1
+need to check column 7 row 0
+
+  var leftDiagnalNumber = clickedColumnNumber + clickedRowNumber; //3
+  for (var rowNumber = 0, columnNumber = leftDiagnalNumber; rowNumber < leftDiagnalNumber + 1 && columnNumber >= 0; rowNumber++ , columnNumber--) {
+    if (targetProperty === gameboard[columnNumber][rowNumber]) {
+      leftDiagnal++;
+      if (leftDiagnal === 4) {
+        break;
+      }
+    }
+    else {
+      leftDiagnal = 0;
+    }
+  }
