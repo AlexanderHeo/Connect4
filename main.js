@@ -7,8 +7,9 @@ var clickedColumnNumber = null;
 var clickedRowNumber = null;
 var horizontalMatch = 0;
 var verticalMatch = 0;
-var rightDiagnal = 0;
-var leftDiagnal = 0;
+var redWins = 0;
+var yellowWins = 0;
+
 
 
 function initializeApp() {
@@ -16,6 +17,7 @@ function initializeApp() {
   addClickHandlers();
   addHoverHandlers();
   $('#playerTurn').css('background-color','yellow').text('yellow');
+  $('.modal').hide();
 }
 
 function createGameBoard() {
@@ -50,6 +52,8 @@ function addClickHandlers() {
   $(".col4").on("click", handleClick);
   $(".col5").on("click", handleClick);
   $(".col6").on("click", handleClick);
+  $(".reset").on("click", resetGame);
+  $(".next-round").on("click", () => {nextGame(); $('.modal').hide()});
 }
 function addHoverHandlers() {
   $(".col0").hover(handleHoverIn,handleHoverOut);
@@ -118,8 +122,6 @@ function handleClick(event) {
       $(event.currentTarget).find('.hover').addClass('yellow');
       playerTurnColor = "yellow";
     }
-
-    updateStats();
     check();
     setTimeout(checkResult(), 10000);
   }
@@ -152,49 +154,45 @@ function check(){
       verticalMatch = 0;
     }
   }
-
-  //diagnal check
-  for (var rowNum = 0, columnNum = 0; rowNum - columnNum === clickedColumnNumber - clickedRowNumber && rowNum < 6 && columnNum < 7; rowNum++ , columnNum++) {
-    if (targetProperty === gameboard[columnNum][rowNum]) {
-      rightDiagnal++;
-      if (rightDiagnal === 4) {
-        break;
-      }
-    }
-    else {
-      rightDiagnal = 0;
-    }
-  }
 }
 
 function checkResult(){
-  if(horizontalMatch === 4 || verticalMatch === 4 || rightDiagnal === 4){
-    alert("you win!");
+  if(horizontalMatch === 4 || verticalMatch === 4){
+    $('.modal').show();
     horizontalMatch = 0;
     verticalMatch = 0;
-    rightDiagnal = 0;
+    if(playerTurnColor === "red"){
+      yellowWins++;
+    }
+    else{
+      redWins++;
+    }
   }
   else{
-    return;
+    displayStats();
   }
 }
 
+function displayStats(){
+  $('#playerTurn').text(playerTurnColor).removeClass('red yellow');
+  $('#playerTurn').addClass(playerTurnColor);
+  $('.yellowStatText').text(yellowWins);
+  $('.redStatText').text(redWins);
+}
+
+function nextGame(){
+  $('.columnContainer *').removeClass('yellow red');
+  clickedColumnNumber = null;
+  clickedRowNumber = null;
+  horizontalMatch = 0;
+  verticalMatch = 0;
+  gameboard = [{}, {}, {}, {}, {}, {}, {}];
+  displayStats();
+}
+
 function resetGame(){
-  // debugger;
-  // $('.red').removeClass('red');
-  // $('.yellow').removeClass('yellow');
-  $('.modal').removeClass('hidden');
-  if (playerTurnColor = 'yellow'){
-    $('.yellowStatText').text(yellowWins);
-    $('#playerTurn').text("Red Turn");
-    $('#playerTurn').removeClass('yellow');
-    $('#playerTurn').addClass('red');
-    playerTurnColor = 'red';
-  } else if (playerTurnColor = 'red') {
-    $('.redStatText').text(redWins);
-    $('#playerTurn').text("Yellow Turn");
-    $('#playerTurn').removeClass('red');
-    $('#playerTurn').addClass('yellow');
-    playerTurnColor = 'yellow';
-  }
+  nextGame();
+  redWins = 0;
+  yellowWins = 0;
+  displayStats();
 }

@@ -132,6 +132,7 @@ margin: auto;
 }
 
 .modal {
+  display: none;
   background-color: skyblue;
   height: 40vh;
   width: 40vh;
