@@ -3,6 +3,7 @@ body {
 }
 .main {
   height: 90vh;
+  width: 55vw;
 }
 .stats {
   font-size: 1.3rem;
@@ -12,7 +13,7 @@ body {
   display: flex;
 }
 .mainStats {
-  width: 50%;
+  width: 90%;
   display: flex;
   margin: 0 auto;
 }
@@ -39,7 +40,7 @@ body {
   background-color: rgb(9, 112, 197);
 }
 .columnContainer {
-  width: 50%;
+  width: 90%;
   display: flex;
   margin: 0 auto;
 }
@@ -101,7 +102,7 @@ margin: auto;
 .redHover,
 .yellowHover {
 background-repeat: no-repeat;
-background-size: 75%;
+background-size: 40%;
 background-position: center;
 }
 .redHover{
