@@ -9,6 +9,13 @@ var horizontalMatch = 0;
 var verticalMatch = 0;
 var rightDiagnal = 0;
 var leftDiagnal = 0;
+var redWins = 5;
+  //for testing stats
+var yellowWins = 5;
+    //for testing stats
+var redCircles = null;
+var yellowCircles = null;
+
 
 function initializeApp() {
   $('.col0').on('click', handleClick);
@@ -18,6 +25,7 @@ function initializeApp() {
   $('.col4').on('click', handleClick);
   $('.col5').on('click', handleClick);
   $('.col6').on('click', handleClick);
+  $('body').on("click", ".resetButtonBody", resetGame);
   createGameBoard();
 }
 
@@ -87,5 +95,24 @@ function createGameBoard() {
     j=0;
     columnContainer.append(newColumn);
   }
+}
 
+function resetGame(){
+  // debugger;
+  // $('.red').removeClass('red');
+  // $('.yellow').removeClass('yellow');
+  $('.modal').removeClass('hidden');
+  if (playerTurnColor = 'yellow'){
+    $('.yellowStatText').text(yellowWins);
+    $('#playerTurn').text("Red Turn");
+    $('#playerTurn').removeClass('yellow');
+    $('#playerTurn').addClass('red');
+    playerTurnColor = 'red';
+  } else if (playerTurnColor = 'red') {
+    $('.redStatText').text(redWins);
+    $('#playerTurn').text("Yellow Turn");
+    $('#playerTurn').removeClass('red');
+    $('#playerTurn').addClass('yellow');
+    playerTurnColor = 'yellow';
+  }
 }
