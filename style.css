@@ -41,7 +41,6 @@ body {
   height: 80%;
   display: flex;
   background-color: rgb(9, 112, 197);
-  z-index: -2;
 }
 .columnContainer {
   width: 50%;
@@ -61,7 +60,6 @@ margin: auto;
 display: flex;
 flex-direction: column;
 position: relative;
-z-index: -1;
 }
 .row0,
 .row1,
@@ -75,19 +73,16 @@ z-index: -1;
   background-image: url('assets/blueDotTransparent.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 2;
 }
 .yellow {
   background-image: url('assets/yellowDot.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 0;
 }
 .red {
   background-image: url('assets/redDot.jpg');
   background-position: center;
   background-size: cover;
-  z-index: 0;
 }
 .hover {
   height: 13.5%;
@@ -105,4 +100,7 @@ background-image:url('assets/redHover.jpg');
 }
 .yellowHover{
 background-image:url('assets/yellowHover.jpg');
+}
+.hidden {
+  display: none;
 }

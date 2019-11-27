@@ -7,27 +7,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-    <script src="script.js"></script>
     <script src="main.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Connect Four</title>
 </head>
 
 <body>
+  <div class="modal hidden"></div>
   <div class="main">
     <div class="stats">
       <div class="mainStats">
         <div class="statsBox">
           <div class="stat" id="playerOne">Red Player:</div>
-          <div class="stat">0</div>
+          <div class="stat redStat">0</div>
         </div>
         <div class="statsBox yellow" id="playerTurn">Yellow<br>Player's Turn</div>
         <div class="statsBox">
           <div class="stat" id="playerTwo">Yellow Player:</div>
-          <div class="stat">0</div>
+          <div class="stat yellowStat">0</div>
         </div>
       </div>
     </div>
+    <button class="newGameButton">New Game</button>
     <div class="game">
       <div class="columnContainer">
 
