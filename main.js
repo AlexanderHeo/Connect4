@@ -11,29 +11,95 @@ var rightDiagnal = 0;
 var leftDiagnal = 0;
 
 function initializeApp() {
-  $('.col0').on('click', handleClick);
-  $('.col1').on('click', handleClick);
-  $('.col2').on('click', handleClick);
-  $('.col3').on('click', handleClick);
-  $('.col4').on('click', handleClick);
-  $('.col5').on('click', handleClick);
-  $('.col6').on('click', handleClick);
   createGameBoard();
+  addClickHandlers();
+  addHoverHandlers();
+  $('#playerTurn').css('background-color','yellow').text('yellow');
+}
+
+function createGameBoard() {
+  var columnContainer = $('.columnContainer');
+  var h = 0;
+  var j = 0;
+
+  var columnClassArray = ['col0', 'col1', 'col2', 'col3', 'col4', 'col5', 'col6'];
+  var rowClassArray = ['hover', 'row5', 'row4', 'row3', 'row2', 'row1', 'row0'];
+
+  for (var column = 0; column < 7; column++) {
+    var newColumn = $('<div>');
+    newColumn.addClass(columnClassArray[h]);
+
+    for (var row = 0; row < 7; row++) {
+      var newRow = $('<div>');
+      newRow.addClass(rowClassArray[j]);
+      j++;
+      newColumn.append(newRow)
+    }
+    h++
+    j = 0;
+    columnContainer.append(newColumn);
+  }
+}
+
+function addClickHandlers() {
+  // debugger;
+  // $(".columnContainer *").on("click", handleClick);
+  $(".col0").on("click", handleClick);
+  $(".col1").on("click", handleClick);
+  $(".col2").on("click", handleClick);
+  $(".col3").on("click", handleClick);
+  $(".col4").on("click", handleClick);
+  $(".col5").on("click", handleClick);
+  $(".col6").on("click", handleClick);
+}
+function addHoverHandlers() {
+  $(".col0").hover(handleHoverIn,handleHoverOut);
+  $(".col1").hover(handleHoverIn,handleHoverOut);
+  $(".col2").hover(handleHoverIn,handleHoverOut);
+  $(".col3").hover(handleHoverIn,handleHoverOut);
+  $(".col4").hover(handleHoverIn,handleHoverOut);
+  $(".col5").hover(handleHoverIn,handleHoverOut);
+  $(".col6").hover(handleHoverIn,handleHoverOut);
+}
+
+function handleHoverIn(event) {
+  console.log(event);
+  var hoverRow = $(event.currentTarget).find('.hover');
+  hoverRow.addClass(playerTurnColor);
+}
+function handleHoverOut(event) {
+console.log("hoverout")
+  var hoverRow = $(event.currentTarget).find('.hover');
+  hoverRow.removeClass(playerTurnColor);
 }
 
 function handleClick(event) {
-  debugger;
+
   clickedColumnNumber = parseInt($((event.currentTarget)).attr('class').split('')[3]);
   clickedRowNumber = Object.keys(gameboard[clickedColumnNumber]).length;
+  if (playerTurnColor === red) {
+    $(event.currentTarget).find('.hover').removeClass('red');
+    $(event.currentTarget).find('.hover').addClass('yellow');
+    playerTurnColor = yellow;
+  } else if (playerTurnColor === yellow) {
+    $(event.currentTarget).find('.hover').removeClass('yellow');
+      $(event.currentTarget).find('.hover').addClickHandlers('red');
+    playerTurnColor = red;
+  }
+
   if (clickedRowNumber < 7) {
     gameboard[clickedColumnNumber][clickedRowNumber] = playerTurnColor;
     $("." + $(event.currentTarget).attr('class') + ">" +".row" + clickedRowNumber).addClass(playerTurnColor);
+
+
+
     if (playerTurnColor === "yellow") {
       playerTurnColor = "red"
     }
     else {
       playerTurnColor = "yellow"
     }
+    updateStats();
     check();
     setTimeout(checkResult(), 10000);
   }
@@ -66,29 +132,7 @@ function check(){
       verticalMatch = 0;
     }
   }
-}
-function createGameBoard() {
-  var columnContainer = $('.columnContainer');
-  var h=0;
-  var j=0;
 
-  var columnClassArray = ['col0', 'col1', 'col2', 'col3', 'col4', 'col5', 'col6'];
-  var rowClassArray = ['hover', 'row5', 'row4', 'row3', 'row2', 'row1', 'row0'];
-
-  for (var column = 0; column<7 ; column++) {
-    var newColumn = $('<div>');
-    newColumn.addClass(columnClassArray[h]);
-
-    for (var row = 0; row < 7; row++) {
-      var newRow = $('<div>');
-      newRow.addClass(rowClassArray[j]);
-      j++;
-      newColumn.append(newRow)
-    }
-    h++
-    j=0;
-    columnContainer.append(newColumn);
-  }
   //diagnal check
   for (var rowNum = 0, columnNum = 0; rowNum - columnNum === clickedColumnNumber - clickedRowNumber && rowNum < 6 && columnNum < 7; rowNum++ , columnNum++) {
     if (targetProperty === gameboard[columnNum][rowNum]) {
@@ -100,11 +144,12 @@ function createGameBoard() {
     else {
       rightDiagnal = 0;
     }
-}
+  }
+
 }
 
 function checkResult(){
-  debugger;
+  // debugger;
   if(horizontalMatch === 4 || verticalMatch === 4 || rightDiagnal === 4){
     alert("you win!");
     horizontalMatch = 0;
@@ -114,4 +159,9 @@ function checkResult(){
   else{
     return;
   }
+}
+
+function updateStats() {
+  var playersTurn = $('#playerTurn');
+  playersTurn.css('background-color', playerTurnColor).text(playerTurnColor);
 }

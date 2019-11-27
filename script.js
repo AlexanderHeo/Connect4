@@ -4,7 +4,7 @@ var matches = null;
 var redWins = 5;
 var yellowWins = 5;
 var playerTurn = 'yellow';
-console.log('creating reset button here');
+// console.log('creating reset button here');
 var resetButton = $('.resetButton');
 var playerOneDiv = $('#playerOne');
 var playerOneText = $('.redStat');
@@ -15,7 +15,7 @@ var redCircles = null;
 var yellowCircles = null;
 
 function startApp() {
-  console.log('applying click handlers')
+  // console.log('applying click handlers')
 
   $('body').on("click", ".resetButton", resetGame);
   redCircles = $('.red');
