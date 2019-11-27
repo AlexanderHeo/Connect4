@@ -9,10 +9,7 @@ var horizontalMatch = 0;
 var verticalMatch = 0;
 var redWins = 0;
 var yellowWins = 0;
-//var redWins = 5;
-  //for testing stats
-//var yellowWins = 5;
-    //for testing stats
+
 
 
 function initializeApp() {
@@ -85,7 +82,36 @@ function handleClick(event) {
 
   if (clickedRowNumber < 7) {
     gameboard[clickedColumnNumber][clickedRowNumber] = playerTurnColor;
-    $("." + $(event.currentTarget).attr('class') + ">" +".row" + clickedRowNumber).addClass(playerTurnColor);
+
+    //switch to determine drop distance
+    var colObj = gameboard[clickedColumnNumber];
+    var colLength = Object.keys(colObj).length;
+
+    switch (colLength) {
+      case 0:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall');
+        break;
+      case 1:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall1');
+        break;
+      case 2:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall2');
+        break;
+      case 3:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall3');
+        break;
+      case 4:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall4');
+        break;
+      case 5:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall5');
+        break;
+      case 6:
+        $("." + $(event.currentTarget).attr('class') + ">" + ".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall6');
+        break;
+    }
+    // the commented line below is now in the switch above
+    // $("." + $(event.currentTarget).attr('class') + ">" +".row" + clickedRowNumber).addClass(playerTurnColor).addClass('fall');
     $(event.currentTarget).find('.hover').removeClass(playerTurnColor);
 
 
@@ -128,7 +154,6 @@ function check(){
       verticalMatch = 0;
     }
   }
-
 }
 
 function checkResult(){
