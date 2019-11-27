@@ -95,19 +95,21 @@ margin: auto;
   margin: 3px auto;
   background-image: url('assets/blueDotTransparent.jpg');
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
 }
 .yellow {
   background-image: url('assets/yellowDot.jpg');
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
   animation: fadingIn;
   animation-duration: 800ms;
 }
 .red {
   background-image: url('assets/redDot.jpg');
   background-position: center;
-  background-size: cover;
+  background-size: 80%;
+  background-repeat: no-repeat;
   animation: fadingIn;
   animation-duration: 800ms;
 }
