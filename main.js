@@ -9,6 +9,11 @@ var horizontalMatch = 0;
 var verticalMatch = 0;
 var rightDiagnal = 0;
 var leftDiagnal = 0;
+//var redWins = 5;
+  //for testing stats
+//var yellowWins = 5;
+    //for testing stats
+
 
 function initializeApp() {
   createGameBoard();
@@ -150,7 +155,22 @@ function checkResult(){
   }
 }
 
-function updateStats() {
-  var playersTurn = $('#playerTurn');
-  playersTurn.css('background-color', playerTurnColor).text(playerTurnColor);
+function resetGame(){
+  // debugger;
+  // $('.red').removeClass('red');
+  // $('.yellow').removeClass('yellow');
+  $('.modal').removeClass('hidden');
+  if (playerTurnColor = 'yellow'){
+    $('.yellowStatText').text(yellowWins);
+    $('#playerTurn').text("Red Turn");
+    $('#playerTurn').removeClass('yellow');
+    $('#playerTurn').addClass('red');
+    playerTurnColor = 'red';
+  } else if (playerTurnColor = 'red') {
+    $('.redStatText').text(redWins);
+    $('#playerTurn').text("Yellow Turn");
+    $('#playerTurn').removeClass('red');
+    $('#playerTurn').addClass('yellow');
+    playerTurnColor = 'yellow';
+  }
 }

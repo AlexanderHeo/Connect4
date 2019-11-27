@@ -17,23 +17,43 @@ body {
   display: flex;
   margin: 0 auto;
 }
+
 .statsBox,
 .playerTurn  {
   width: 30%;
   height: 100%;
-  background-color: rgb(91, 91, 139);
+  /* background-color: rgb(91, 91, 139); */
   margin: auto;
-  color: orange;
-  text-shadow: 1px 1px brown;
+  /* color: orange; */
+  /* text-shadow: 1px 1px brown; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.stat {
+.redStat {
   width: 100%;
   height: 45%;
-  border: 1px solid red;
+  border: 2px solid black;
+  background-color: red;
+  color: black;
 }
+.yellowStat {
+  width: 100%;
+  height: 45%;
+  border: 2px solid black;
+  background-color: yellow;
+  color: black;
+}
+
+div.statsBox.red {
+  background-color: transparent;
+  overflow: hidden;
+}
+
+div.statsBox.yellow {
+  background-color: transparent;
+}
+
 .game {
   height: 80%;
   display: flex;
@@ -99,17 +119,42 @@ margin: auto;
   width: 91%;
   margin: 0 auto;
 }
-.redHover,
-.yellowHover {
-background-repeat: no-repeat;
-background-size: 40%;
-background-position: center;
-}
 .redHover{
-background-image:url('assets/redHover.jpg');
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+  background-image:url('assets/redHover.jpg');
 }
 .yellowHover{
-background-image:url('assets/yellowHover.jpg');
+  background-image:url('assets/yellowHover.jpg');
+  background-repeat: no-repeat;
+  background-size: 75%;
+  background-position: center;
+}
+
+.modal {
+  background-color: skyblue;
+  height: 40vh;
+  width: 40vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  background-image: url(../c1119_Hackathon/assets/reset.gif);
+}
+
+#playerOne {
+  background-color: red;
+}
+
+#playerTwo {
+  background-color: yellow;
+}
+
+.hidden {
+  display: none;
 }
 
 @keyframes fadingIn {
