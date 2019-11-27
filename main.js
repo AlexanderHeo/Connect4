@@ -42,8 +42,6 @@ function createGameBoard() {
 }
 
 function addClickHandlers() {
-  // debugger;
-  // $(".columnContainer *").on("click", handleClick);
   $(".col0").on("click", handleClick);
   $(".col1").on("click", handleClick);
   $(".col2").on("click", handleClick);
@@ -74,31 +72,23 @@ console.log("hoverout")
 }
 
 function handleClick(event) {
-
   clickedColumnNumber = parseInt($((event.currentTarget)).attr('class').split('')[3]);
   clickedRowNumber = Object.keys(gameboard[clickedColumnNumber]).length;
-  if (playerTurnColor === red) {
-    $(event.currentTarget).find('.hover').removeClass('red');
-    $(event.currentTarget).find('.hover').addClass('yellow');
-    playerTurnColor = yellow;
-  } else if (playerTurnColor === yellow) {
-    $(event.currentTarget).find('.hover').removeClass('yellow');
-      $(event.currentTarget).find('.hover').addClickHandlers('red');
-    playerTurnColor = red;
-  }
 
   if (clickedRowNumber < 7) {
     gameboard[clickedColumnNumber][clickedRowNumber] = playerTurnColor;
     $("." + $(event.currentTarget).attr('class') + ">" +".row" + clickedRowNumber).addClass(playerTurnColor);
-
+    $(event.currentTarget).find('.hover').removeClass(playerTurnColor);
 
 
     if (playerTurnColor === "yellow") {
-      playerTurnColor = "red"
+      $(event.currentTarget).find('.hover').addClass('red');
+      playerTurnColor = "red";
+    } else if (playerTurnColor === 'red') {
+      $(event.currentTarget).find('.hover').addClass('yellow');
+      playerTurnColor = "yellow";
     }
-    else {
-      playerTurnColor = "yellow"
-    }
+
     updateStats();
     check();
     setTimeout(checkResult(), 10000);
@@ -149,7 +139,6 @@ function check(){
 }
 
 function checkResult(){
-  // debugger;
   if(horizontalMatch === 4 || verticalMatch === 4 || rightDiagnal === 4){
     alert("you win!");
     horizontalMatch = 0;

@@ -2,10 +2,7 @@ body {
   margin: 0;
 }
 .main {
-  height: 100vh;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
+  height: 90vh;
 }
 .stats {
   font-size: 1.3rem;
@@ -29,7 +26,6 @@ body {
   text-shadow: 1px 1px brown;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 .stat {
@@ -57,9 +53,18 @@ body {
 height: 80%;
 width: 14.5%;
 margin: auto;
-display: flex;
-flex-direction: column;
-position: relative;
+}
+.col0:hover,
+.col1:hover,
+.col2:hover,
+.col3:hover,
+.col4:hover,
+.col5:hover,
+.col6:hover {
+  transform: perspective(20px) translateZ(1px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  transition-duration: 0.5s;
+  -webkit-font-smoothing: antialiased;
 }
 .row0,
 .row1,
@@ -104,9 +109,6 @@ background-image:url('assets/redHover.jpg');
 }
 .yellowHover{
 background-image:url('assets/yellowHover.jpg');
-}
-
-.fadeIn {
 }
 
 @keyframes fadingIn {
