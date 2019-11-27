@@ -16,7 +16,7 @@ function initializeApp() {
   createGameBoard();
   addClickHandlers();
   addHoverHandlers();
-  $('#playerTurn').addClass('yellow').text('yellow');
+  $('#playerTurn').addClass('yellow').text("yellow's turn");
   $('.modal').hide();
 }
 
@@ -174,10 +174,12 @@ function checkResult(){
 }
 
 function displayStats(){
-  $('#playerTurn').text(playerTurnColor).removeClass('red yellow');
+  $('#playerTurn').text(playerTurnColor + "'s turn").removeClass('red yellow');
   $('#playerTurn').addClass(playerTurnColor);
   $('.yellowStatText').text(yellowWins);
   $('.redStatText').text(redWins);
+  $('.win').text(playerTurnColor + " wins!")
+  $('.modal').css('background-color', playerTurnColor);
 }
 
 function nextGame(){
