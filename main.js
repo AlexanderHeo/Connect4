@@ -9,12 +9,10 @@ var horizontalMatch = 0;
 var verticalMatch = 0;
 var rightDiagnal = 0;
 var leftDiagnal = 0;
-var redWins = 5;
+//var redWins = 5;
   //for testing stats
-var yellowWins = 5;
+//var yellowWins = 5;
     //for testing stats
-var redCircles = null;
-var yellowCircles = null;
 
 
 function initializeApp() {
