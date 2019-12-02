@@ -7,6 +7,8 @@ var clickedColumnNumber = null;
 var clickedRowNumber = null;
 var horizontalMatch = 0;
 var verticalMatch = 0;
+var rightMatch = 0;
+var leftMatch = 0;
 var redWins = 0;
 var yellowWins = 0;
 
@@ -130,12 +132,13 @@ function handleClick(event) {
 // horizontal check
 
 function check(){
+  debugger;
   var targetProperty = gameboard[clickedColumnNumber][clickedRowNumber];
   for(var columnIndex = 0; columnIndex < 7; columnIndex++){
     if(targetProperty === gameboard[columnIndex][clickedRowNumber]){
       horizontalMatch++;
       if(horizontalMatch === 4){
-        break;
+        return;
       }
     }
     else{
@@ -147,20 +150,71 @@ function check(){
     if(targetProperty === gameboard[clickedColumnNumber][rowIndex]){
       verticalMatch++;
       if(verticalMatch === 4){
-        break;
+        return;
       }
     }
     else{
       verticalMatch = 0;
     }
   }
+
+  //right check
+  if(clickedColumnNumber <= clickedRowNumber){
+    for(var c = 0, r = clickedRowNumber - clickedColumnNumber; r < 6; c++, r++){
+      if(targetProperty === gameboard[c][r]){
+        rightMatch++;
+        if(rightMatch === 4){
+          return;
+        }
+      }
+      else{
+        rightMatch = 0;
+      }
+    }
+  }
+  else{
+    for(r =0, c = clickedColumnNumber - clickedRowNumber; c < 7; c++, r++){
+      if (targetProperty === gameboard[c][r]) {
+        rightMatch++;
+        if (rightMatch === 4) {
+          return;
+        }
+      }
+      else {
+        rightMatch = 0;
+      }
+    }
+  }
+
+  //left check
+  for(var row = clickedRowNumber, col = clickedColumnNumber; row >= 0 && col <=6; row--, col++){
+    if(targetProperty === gameboard[col][row]){
+      leftMatch++;
+      if(leftMatch === 4){
+        return;
+      }
+    }
+    else{
+      break;
+    }
+  }
+
+  for(var rowNum = clickedRowNumber + 1, colNum = clickedColumnNumber - 1; rowNum <= 5 && colNum >= 0; rowNum++, colNum--){
+    if(targetProperty === gameboard[colNum][rowNum]){
+      leftMatch++;
+      if(leftMatch === 4){
+        return;
+      }
+    }
+    else{
+      break;
+    }
+  }
 }
 
 function checkResult(){
-  if(horizontalMatch === 4 || verticalMatch === 4){
+  if(horizontalMatch === 4 || verticalMatch === 4 || rightMatch === 4 || leftMatch === 4){
     $('.modal').show();
-    horizontalMatch = 0;
-    verticalMatch = 0;
     if(playerTurnColor === "red"){
       yellowWins++;
     }
@@ -171,6 +225,10 @@ function checkResult(){
   else{
     displayStats();
   }
+  horizontalMatch = 0;
+  verticalMatch = 0;
+  rightMatch = 0;
+  leftMatch = 0;
 }
 
 function displayStats(){
@@ -186,8 +244,6 @@ function nextGame(){
   $('.columnContainer *').removeClass('yellow red');
   clickedColumnNumber = null;
   clickedRowNumber = null;
-  horizontalMatch = 0;
-  verticalMatch = 0;
   gameboard = [{}, {}, {}, {}, {}, {}, {}];
   displayStats();
 }
