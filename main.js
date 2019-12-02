@@ -185,10 +185,35 @@ function check(){
       }
     }
   }
+
+  //left check
+  for(var row = clickedRowNumber, col = clickedColumnNumber; row >= 0 && col <=6; row--, col++){
+    if(targetProperty === gameboard[col][row]){
+      leftMatch++;
+      if(leftMatch === 4){
+        return;
+      }
+    }
+    else{
+      break;
+    }
+  }
+
+  for(var rowNum = clickedRowNumber + 1, colNum = clickedColumnNumber - 1; rowNum <= 5 && colNum >= 0; rowNum++, colNum--){
+    if(targetProperty === gameboard[colNum][rowNum]){
+      leftMatch++;
+      if(leftMatch === 4){
+        return;
+      }
+    }
+    else{
+      break;
+    }
+  }
 }
 
 function checkResult(){
-  if(horizontalMatch === 4 || verticalMatch === 4 || rightMatch === 4){
+  if(horizontalMatch === 4 || verticalMatch === 4 || rightMatch === 4 || leftMatch === 4){
     $('.modal').show();
     if(playerTurnColor === "red"){
       yellowWins++;
@@ -203,6 +228,7 @@ function checkResult(){
   horizontalMatch = 0;
   verticalMatch = 0;
   rightMatch = 0;
+  leftMatch = 0;
 }
 
 function displayStats(){
@@ -218,8 +244,6 @@ function nextGame(){
   $('.columnContainer *').removeClass('yellow red');
   clickedColumnNumber = null;
   clickedRowNumber = null;
-  horizontalMatch = 0;
-  verticalMatch = 0;
   gameboard = [{}, {}, {}, {}, {}, {}, {}];
   displayStats();
 }
