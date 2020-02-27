@@ -132,7 +132,7 @@ function handleClick(event) {
 // horizontal check
 
 function check(){
-  debugger;
+  // debugger;
   var targetProperty = gameboard[clickedColumnNumber][clickedRowNumber];
   for(var columnIndex = 0; columnIndex < 7; columnIndex++){
     if(targetProperty === gameboard[columnIndex][clickedRowNumber]){
